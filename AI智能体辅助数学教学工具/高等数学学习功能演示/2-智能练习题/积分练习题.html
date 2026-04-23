@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>积分练习题（共5题）</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .meta-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .exercise {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .exercise-header {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .question {
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+        }
+        .answer {
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #e8f8e8;
+            border-left: 4px solid #27ae60;
+        }
+        .answer strong {
+            color: #27ae60;
+        }
+        .explanation {
+            font-size: 14px;
+            padding: 10px;
+            background-color: #fef9e7;
+            border-left: 4px solid #f39c12;
+        }
+        .explanation strong {
+            color: #f39c12;
+        }
+        .divider {
+            text-align: center;
+            color: #bdc3c7;
+            margin: 20px 0;
+        }
+        .difficulty-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .easy { background-color: #d5f4e6; color: #27ae60; }
+        .medium { background-color: #fef9e7; color: #f39c12; }
+        .hard { background-color: #fadbd8; color: #e74c3c; }
+        @media print {
+            body { background-color: white; }
+            .container { box-shadow: none; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>积分练习题（共5题）</h1>
+        <div class="meta-info">生成时间：2025/12/8 17:53:42</div>
+        
+        
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 1
+                <span class="difficulty-badge easy">简单</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>计算不定积分：∫(3x² + 2x - 1)dx
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>x³ + x² - x + C
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>逐项积分：∫3x²dx = x³，∫2xdx = x²，∫(-1)dx = -x，加上常数C
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 2
+                <span class="difficulty-badge easy">简单</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>计算不定积分：∫(2x + 5)dx
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>x² + 5x + C
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>∫2xdx = x²，∫5dx = 5x，加上常数C
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 3
+                <span class="difficulty-badge medium">中等</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>计算不定积分：∫x·e^x dx
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>x·e^x - e^x + C
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>使用分部积分法：设u = x，dv = e^x dx，则du = dx，v = e^x，∫x·e^x dx = x·e^x - ∫e^x dx = x·e^x - e^x + C
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 4
+                <span class="difficulty-badge medium">中等</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>计算不定积分：∫ln(x) dx
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>x·ln(x) - x + C
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>使用分部积分法：设u = ln(x)，dv = dx，则du = 1/x dx，v = x，∫ln(x) dx = x·ln(x) - ∫x·(1/x) dx = x·ln(x) - ∫1 dx = x·ln(x) - x + C
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 5
+                <span class="difficulty-badge hard">困难</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>计算不定积分：∫x²·sin(x) dx
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>-x²·cos(x) + 2x·sin(x) + 2·cos(x) + C
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>使用分部积分法两次：第一次设u = x²，dv = sin(x) dx，得到∫x²·sin(x) dx = -x²·cos(x) + ∫2x·cos(x) dx，再对∫2x·cos(x) dx使用分部积分
+            </div>
+        </div>
+        
+            
+    </div>
+</body>
+</html>

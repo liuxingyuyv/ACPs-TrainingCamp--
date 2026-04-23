@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>积分可视化</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .visualization { text-align: center; margin: 20px 0; }
+        .explanation { background: #f5f5f5; padding: 15px; margin: 20px 0; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>积分可视化：f(x) = sin(x) 的积分</h1>
+        
+        <div class="visualization">
+            <img src="integral_visualization.png" alt="积分可视化">
+        </div>
+        
+        <div class="explanation">
+            <h2>数学原理</h2>
+            <p><strong>被积函数：</strong>f(x) = sin(x)</p>
+            <p><strong>原函数：</strong>F(x) = -cos(x) + C</p>
+            <p><strong>定积分：</strong>∫[0,π] sin(x)dx = [-cos(x)][0,π] = -cos(π) + cos(0) = 1 + 1 = 2</p>
+            
+            <h3>积分的几何意义</h3>
+            <ul>
+                <li>积分表示函数曲线与x轴之间的有向面积</li>
+                <li>红色阴影区域表示从0到π的积分区域</li>
+                <li>该区域的面积等于2</li>
+            </ul>
+            
+            <h3>观察要点</h3>
+            <ul>
+                <li>蓝色实线表示被积函数f(x) = sin(x)</li>
+                <li>绿色虚线表示原函数F(x) = -cos(x)</li>
+                <li>红色阴影区域表示定积分的几何意义</li>
+                <li>原函数的导数等于被积函数</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

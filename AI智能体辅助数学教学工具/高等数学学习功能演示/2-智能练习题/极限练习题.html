@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极限练习题（共5题）</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .meta-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .exercise {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .exercise-header {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .question {
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+        }
+        .answer {
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #e8f8e8;
+            border-left: 4px solid #27ae60;
+        }
+        .answer strong {
+            color: #27ae60;
+        }
+        .explanation {
+            font-size: 14px;
+            padding: 10px;
+            background-color: #fef9e7;
+            border-left: 4px solid #f39c12;
+        }
+        .explanation strong {
+            color: #f39c12;
+        }
+        .divider {
+            text-align: center;
+            color: #bdc3c7;
+            margin: 20px 0;
+        }
+        .difficulty-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .easy { background-color: #d5f4e6; color: #27ae60; }
+        .medium { background-color: #fef9e7; color: #f39c12; }
+        .hard { background-color: #fadbd8; color: #e74c3c; }
+        @media print {
+            body { background-color: white; }
+            .container { box-shadow: none; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>极限练习题（共5题）</h1>
+        <div class="meta-info">生成时间：2025/12/8 17:53:42</div>
+        
+        
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 1
+                <span class="difficulty-badge easy">简单</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>计算极限：lim(x→2) (x² + 3x - 2)
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>8
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>直接代入：2² + 3·2 - 2 = 4 + 6 - 2 = 8
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 2
+                <span class="difficulty-badge easy">简单</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>计算极限：lim(x→1) (x + 5)
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>6
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>直接代入：1 + 5 = 6
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 3
+                <span class="difficulty-badge medium">中等</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>计算极限：lim(x→0) sin(x)/x
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>1
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>这是重要极限之一，lim(x→0) sin(x)/x = 1
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 4
+                <span class="difficulty-badge medium">中等</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>计算极限：lim(x→0) (1 - cos(x))/x²
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>1/2
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>使用等价无穷小：当x→0时，1 - cos(x) ~ x²/2，所以极限为(x²/2)/x² = 1/2
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 5
+                <span class="difficulty-badge hard">困难</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>计算极限：lim(x→0+) x·ln(x)
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>0
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>这是0·(-∞)型不定式，转换为ln(x)/(1/x)，使用洛必达法则：lim(x→0+) ln(x)/(1/x) = lim(x→0+) (1/x)/(-1/x²) = lim(x→0+) (-x) = 0
+            </div>
+        </div>
+        
+            
+    </div>
+</body>
+</html>

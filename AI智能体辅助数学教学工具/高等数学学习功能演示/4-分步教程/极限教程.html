@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极限教程 - 极限概念的深入理解</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #9b59b6;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #9b59b6;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #8e44ad;
+            margin-top: 25px;
+        }
+        .concept-box {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #9b59b6;
+        }
+        .example-box {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+        }
+        .exercise-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #f39c12;
+        }
+        .formula {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .step {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .answer {
+            background: #d4edda;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        .show-answer {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .show-answer:hover {
+            background: #0056b3;
+        }
+        .nav-button {
+            background: #9b59b6;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px;
+            display: inline-block;
+        }
+        .nav-button:hover {
+            background: #8e44ad;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .definition {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+        .important {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>极限教程 - 极限概念的深入理解</h1>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="导数教程.html" class="nav-button">导数教程</a>
+            <a href="积分教程.html" class="nav-button">积分教程</a>
+            <a href="综合应用.html" class="nav-button">综合应用</a>
+        </div>
+
+        <h2>第一章：极限的基本概念</h2>
+        
+        <div class="definition">
+            <h3>1.1 极限的直观理解</h3>
+            <p>极限描述的是当自变量<span class="highlight">无限接近</span>某个值时，函数值的变化趋势。它关注的是"接近过程中的行为"，而不是在该点的实际值。</p>
+            
+            <div class="formula">
+                lim<sub>x→a</sub>f(x) = L
+            </div>
+            
+            <p>表示当 x 无限接近 a 时，f(x) 无限接近 L。</p>
+        </div>
+
+        <div class="definition">
+            <h3>1.2 极限的严格定义（ε-δ定义）</h3>
+            <p>对于任意正数 ε > 0，存在正数 δ > 0，使得当 0 < |x - a| < δ 时，有 |f(x) - L| < ε，则称 lim<sub>x→a</sub>f(x) = L。</p>
+            
+            <div class="formula">
+                ∀ε > 0, ∃δ > 0, s.t. 0 < |x - a| < δ ⇒ |f(x) - L| < ε
+            </div>
+        </div>
+
+        <div class="concept-box">
+            <h3>1.3 极限的类型</h3>
+            <ul>
+                <li><strong>双侧极限：</strong>lim<sub>x→a</sub>f(x) = L</li>
+                <li><strong>左极限：</strong>lim<sub>x→a⁻</sub>f(x) = L</li>
+                <li><strong>右极限：</strong>lim<sub>x→a⁺</sub>f(x) = L</li>
+                <li><strong>无穷极限：</strong>lim<sub>x→∞</sub>f(x) = L 或 lim<sub>x→a</sub>f(x) = ∞</li>
+            </ul>
+            
+            <p><strong>重要定理：</strong>lim<sub>x→a</sub>f(x) = L 当且仅当 lim<sub>x→a⁻</sub>f(x) = lim<sub>x→a⁺</sub>f(x) = L</p>
+        </div>
+
+        <h2>第二章：极限的性质与运算法则</h2>
+
+        <div class="concept-box">
+            <h3>2.1 极限的基本性质</h3>
+            <ul>
+                <li><strong>唯一性：</strong>如果极限存在，则极限值唯一</li>
+                <li><strong>局部有界性：</strong>如果 lim<sub>x→a</sub>f(x) = L，则 f(x) 在 a 的某邻域内有界</li>
+                <li><strong>保号性：</strong>如果 lim<sub>x→a</sub>f(x) = L > 0，则在 a 的某邻域内 f(x) > 0</li>
+            </ul>
+        </div>
+
+        <div class="concept-box">
+            <h3>2.2 极限的运算法则</h3>
+            <p>如果 lim<sub>x→a</sub>f(x) = A，lim<sub>x→a</sub>g(x) = B，则：</p>
+            
+            <div class="formula">
+                lim<sub>x→a</sub>[f(x) ± g(x)] = A ± B
+            </div>
+            <div class="formula">
+                lim<sub>x→a</sub>[f(x) · g(x)] = A · B
+            </div>
+            <div class="formula">
+                lim<sub>x→a</sub>[f(x) / g(x)] = A / B  (B ≠ 0)
+            </div>
+            <div class="formula">
+                lim<sub>x→a</sub>[f(x)]<sup>n</sup> = A<sup>n</sup>
+            </div>
+        </div>
+
+        <div class="concept-box">
+            <h3>2.3 夹逼定理</h3>
+            <p>如果在 a 的某邻域内，g(x) ≤ f(x) ≤ h(x)，且 lim<sub>x→a</sub>g(x) = lim<sub>x→a</sub>h(x) = L，则 lim<sub>x→a</sub>f(x) = L。</p>
+        </div>
+
+        <h2>第三章：重要极限</h2>
+
+        <div class="important">
+            <h3>3.1 两个重要极限</h3>
+            <p><strong>重要极限一：</strong></p>
+            <div class="formula">
+                lim<sub>x→0</sub>sin(x)/x = 1
+            </div>
+            
+            <p><strong>重要极限二：</strong></p>
+            <div class="formula">
+                lim<sub>x→∞</sub>(1 + 1/x)<sup>x</sup> = e
+            </div>
+            <div class="formula">
+                lim<sub>x→0</sub>(1 + x)<sup>1/x</sup> = e
+            </div>
+        </div>
+
+        <div class="concept-box">
+            <h3>3.2 常见极限公式</h3>
+            <div class="formula">
+                lim<sub>x→0</sub>tan(x)/x = 1
+            </div>
+            <div class="formula">
+                lim<sub>x→0</sub>(1 - cos(x))/x² = 1/2
+            </div>
+            <div class="formula">
+                lim<sub>x→0</sub>(e<sup>x</sup> - 1)/x = 1
+            </div>
+            <div class="formula">
+                lim<sub>x→0</sub>ln(1 + x)/x = 1
+            </div>
+        </div>
+
+        <h2>第四章：极限的计算方法</h2>
+
+        <div class="concept-box">
+            <h3>4.1 直接代入法</h3>
+            <p>当函数在极限点连续时，可以直接代入求值。</p>
+        </div>
+
+        <div class="concept-box">
+            <h3>4.2 因式分解法</h3>
+            <p>对于 0/0 型不定式，通过因式分解约去公因子。</p>
+        </div>
+
+        <div class="concept-box">
+            <h3>4.3 有理化法</h3>
+            <p>对于含有根号的不定式，通过有理化消除根号。</p>
+        </div>
+
+        <div class="concept-box">
+            <h3>4.4 洛必达法则</h3>
+            <p>对于 0/0 或 ∞/∞ 型不定式，可以使用洛必达法则：</p>
+            <div class="formula">
+                lim<sub>x→a</sub>f(x)/g(x) = lim<sub>x→a</sub>f'(x)/g'(x)
+            </div>
+            <p>（当右端极限存在时）</p>
+        </div>
+
+        <div class="example-box">
+            <h3>例题1：因式分解法</h3>
+            <p><strong>题目：</strong>计算 lim<sub>x→2</sub>(x² - 4)/(x - 2)</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                直接代入得到 0/0 型不定式<br>
+                分子因式分解：x² - 4 = (x - 2)(x + 2)<br>
+                lim<sub>x→2</sub>(x - 2)(x + 2)/(x - 2) = lim<sub>x→2</sub>(x + 2) = 4
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>例题2：有理化法</h3>
+            <p><strong>题目：</strong>计算 lim<sub>x→0</sub>(√(x + 1) - 1)/x</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                分子有理化：乘以(√(x + 1) + 1)/(√(x + 1) + 1)<br>
+                = lim<sub>x→0</sub>[(x + 1) - 1]/[x(√(x + 1) + 1)]<br>
+                = lim<sub>x→0</sub>x/[x(√(x + 1) + 1)]<br>
+                = lim<sub>x→0</sub>1/(√(x + 1) + 1) = 1/2
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>例题3：重要极限应用</h3>
+            <p><strong>题目：</strong>计算 lim<sub>x→0</sub>sin(3x)/x</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                利用重要极限 lim<sub>x→0</sub>sin(x)/x = 1<br>
+                lim<sub>x→0</sub>sin(3x)/x = lim<sub>x→0</sub>[sin(3x)/(3x)]·3<br>
+                = 1·3 = 3
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>例题4：洛必达法则</h3>
+            <p><strong>题目：</strong>计算 lim<sub>x→0</sub>(e<sup>x</sup> - 1)/x</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                直接代入得到 0/0 型不定式<br>
+                应用洛必达法则：<br>
+                lim<sub>x→0</sub>(e<sup>x</sup> - 1)/x = lim<sub>x→0</sub>e<sup>x</sup>/1 = e<sup>0</sup> = 1
+            </div>
+        </div>
+
+        <h2>第五章：无穷小与无穷大</h2>
+
+        <div class="concept-box">
+            <h3>5.1 无穷小的概念</h3>
+            <p>如果 lim<sub>x→a</sub>f(x) = 0，则称 f(x) 为当 x→a 时的<span class="highlight">无穷小量</span>。</p>
+            
+            <p><strong>无穷小的比较：</strong></p>
+            <ul>
+                <li>如果 lim<sub>x→a</sub>β/α = 0，则称 β 是比 α 高阶的无穷小</li>
+                <li>如果 lim<sub>x→a</sub>β/α = c ≠ 0，则称 β 与 α 是同阶无穷小</li>
+                <li>如果 lim<sub>x→a</sub>β/α = 1，则称 β 与 α 是等价无穷小</li>
+            </ul>
+        </div>
+
+        <div class="concept-box">
+            <h3>5.2 常见等价无穷小</h3>
+            <p>当 x→0 时：</p>
+            <div class="formula">
+                sin(x) ~ x
+            </div>
+            <div class="formula">
+                tan(x) ~ x
+            </div>
+            <div class="formula">
+                1 - cos(x) ~ x²/2
+            </div>
+            <div class="formula">
+                e<sup>x</sup> - 1 ~ x
+            </div>
+            <div class="formula">
+                ln(1 + x) ~ x
+            </div>
+        </div>
+
+        <h2>第六章：连续性</h2>
+
+        <div class="definition">
+            <h3>6.1 连续性的定义</h3>
+            <p>函数 f(x) 在点 a 处连续，当且仅当满足以下三个条件：</p>
+            <ol>
+                <li>f(a) 存在</li>
+                <li>lim<sub>x→a</sub>f(x) 存在</li>
+                <li>lim<sub>x→a</sub>f(x) = f(a)</li>
+            </ol>
+        </div>
+
+        <div class="concept-box">
+            <h3>6.2 间断点的类型</h3>
+            <ul>
+                <li><strong>可去间断点：</strong>左右极限存在且相等，但不等于函数值</li>
+                <li><strong>跳跃间断点：</strong>左右极限存在但不相等</li>
+                <li><strong>无穷间断点：</strong>至少有一侧极限为无穷大</li>
+                <li><strong>振荡间断点：</strong>极限不存在且不为无穷大</li>
+            </ul>
+        </div>
+
+        <h2>第七章：练习题</h2>
+
+        <div class="exercise-box">
+            <h3>练习1：基本极限计算</h3>
+            <p>计算下列极限：</p>
+            <ol>
+                <li>lim<sub>x→3</sub>(x² - 9)/(x - 3)</li>
+                <li>lim<sub>x→0</sub>sin(2x)/x</li>
+                <li>lim<sub>x→∞</sub>(2x² + 3x + 1)/(x² - x + 2)</li>
+                <li>lim<sub>x→0</sub>(e<sup>x</sup> - 1 - x)/x²</li>
+            </ol>
+            
+            <button class="show-answer" onclick="toggleAnswer('answer1')">显示答案</button>
+            <div id="answer1" class="answer">
+                <strong>答案：</strong><br>
+                1. lim<sub>x→3</sub>(x² - 9)/(x - 3) = lim<sub>x→3</sub>(x + 3) = 6<br>
+                2. lim<sub>x→0</sub>sin(2x)/x = lim<sub>x→0</sub>[sin(2x)/(2x)]·2 = 2<br>
+                3. lim<sub>x→∞</sub>(2x² + 3x + 1)/(x² - x + 2) = 2<br>
+                4. lim<sub>x→0</sub>(e<sup>x</sup> - 1 - x)/x² = lim<sub>x→0</sub>e<sup>x</sup>/2 = 1/2 (洛必达法则)
+            </div>
+        </div>
+
+        <div class="exercise-box">
+            <h3>练习2：有理化计算</h3>
+            <p>计算 lim<sub>x→4</sub>(√x - 2)/(x - 4)</p>
+            
+            <button class="show-answer" onclick="toggleAnswer('answer2')">显示答案</button>
+            <div id="answer2" class="answer">
+                <strong>答案：</strong><br>
+                分子有理化：<br>
+                lim<sub>x→4</sub>(√x - 2)(√x + 2)/(x - 4)(√x + 2)<br>
+                = lim<sub>x→4</sub>(x - 4)/(x - 4)(√x + 2)<br>
+                = lim<sub>x→4</sub>1/(√x + 2) = 1/4
+            </div>
+        </div>
+
+        <div class="exercise-box">
+            <h3>练习3：连续性判断</h3>
+            <p>判断函数 f(x) = {
+                x², x ≤ 1
+                2x - 1, x > 1
+            } 在 x = 1 处是否连续。</p>
+            
+            <button class="show-answer" onclick="toggleAnswer('answer3')">显示答案</button>
+            <div id="answer3" class="answer">
+                <strong>答案：</strong><br>
+                检查连续性条件：<br>
+                1. f(1) = 1² = 1<br>
+                2. lim<sub>x→1⁻</sub>f(x) = lim<sub>x→1⁻</sub>x² = 1<br>
+                3. lim<sub>x→1⁺</sub>f(x) = lim<sub>x→1⁺</sub>(2x - 1) = 1<br>
+                因为左右极限相等且等于函数值，所以函数在 x = 1 处连续。
+            </div>
+        </div>
+
+        <h2>第八章：本章小结</h2>
+
+        <div class="concept-box">
+            <h3>学习要点总结</h3>
+            <ul>
+                <li><strong>极限概念：</strong>理解极限的直观意义和严格定义</li>
+                <li><strong>计算方法：</strong>掌握各种极限计算技巧和特殊方法</li>
+                <li><strong>重要极限：</strong>熟记两个重要极限及其变形</li>
+                <li><strong>连续性：</strong>理解连续与极限的关系，判断函数的连续性</li>
+                <li><strong>应用能力：</strong>能够灵活运用极限理论解决实际问题</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="综合应用.html" class="nav-button">下一章：综合应用</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            var answer = document.getElementById(id);
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

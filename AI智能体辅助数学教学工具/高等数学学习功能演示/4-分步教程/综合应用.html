@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>综合应用 - 微积分在实际问题中的应用</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #16a085;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #16a085;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #138d75;
+            margin-top: 25px;
+        }
+        .concept-box {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #16a085;
+        }
+        .example-box {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+        }
+        .exercise-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #f39c12;
+        }
+        .formula {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .step {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .answer {
+            background: #d4edda;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        .show-answer {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .show-answer:hover {
+            background: #0056b3;
+        }
+        .nav-button {
+            background: #16a085;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px;
+            display: inline-block;
+        }
+        .nav-button:hover {
+            background: #138d75;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .application {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+        .case-study {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ff9800;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>综合应用 - 微积分在实际问题中的应用</h1>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="导数教程.html" class="nav-button">导数教程</a>
+            <a href="积分教程.html" class="nav-button">积分教程</a>
+            <a href="极限教程.html" class="nav-button">极限教程</a>
+        </div>
+
+        <h2>第一章：物理学中的应用</h2>
+        
+        <div class="application">
+            <h3>1.1 运动学问题</h3>
+            <p>微积分在物理学中最直接的应用是描述物体的运动。</p>
+            
+            <div class="formula">
+                速度：v(t) = ds/dt
+            </div>
+            <div class="formula">
+                加速度：a(t) = dv/dt = d²s/dt²
+            </div>
+            <div class="formula">
+                位移：s(t) = ∫v(t)dt
+            </div>
+        </div>
+
+        <div class="case-study">
+            <h3>案例1：自由落体运动</h3>
+            <p><strong>问题：</strong>一个物体从高度 h 处自由落下，忽略空气阻力，求：</p>
+            <ol>
+                <li>物体在任意时刻 t 的速度</li>
+                <li>物体到达地面所需的时间</li>
+                <li>物体到达地面时的速度</li>
+            </ol>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                已知重力加速度 g = 9.8 m/s²<br>
+                <br>
+                1. 速度：v(t) = ∫a dt = ∫g dt = gt + C₁<br>
+                初始条件：v(0) = 0，所以 C₁ = 0<br>
+                v(t) = gt<br>
+                <br>
+                2. 位移：s(t) = ∫v dt = ∫gt dt = (1/2)gt² + C₂<br>
+                初始条件：s(0) = 0，所以 C₂ = 0<br>
+                s(t) = (1/2)gt²<br>
+                到达地面时：s(t) = h<br>
+                (1/2)gt² = h<br>
+                t = √(2h/g)<br>
+                <br>
+                3. 到达地面时的速度：<br>
+                v = gt = g√(2h/g) = √(2gh)
+            </div>
+        </div>
+
+        <div class="application">
+            <h3>1.2 功与能量</h3>
+            <p>变力做功的计算需要用到积分：</p>
+            
+            <div class="formula">
+                W = ∫<sub>a</sub><sup>b</sup>F(x)dx
+            </div>
+            
+            <p>其中 F(x) 是随位置变化的力。</p>
+        </div>
+
+        <div class="case-study">
+            <h3>案例2：弹簧的弹性势能</h3>
+            <p><strong>问题：</strong>根据胡克定律，弹簧的弹力 F = -kx，其中 k 是劲度系数，x 是伸长量。求将弹簧从原长拉伸到长度 L 时所做的功。</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                克服弹力做功：W = ∫<sub>0</sub><sup>L</sup>kx dx<br>
+                = [kx²/2]<sub>0</sub><sup>L</sup><br>
+                = kL²/2<br>
+                这就是弹簧的弹性势能公式。
+            </div>
+        </div>
+
+        <h2>第二章：经济学中的应用</h2>
+
+        <div class="application">
+            <h3>2.1 边际分析</h3>
+            <p>在经济学中，导数用来描述<span class="highlight">边际量</span>：</p>
+            <ul>
+                <li><strong>边际成本：</strong>MC = dC/dQ（成本对产量的导数）</li>
+                <li><strong>边际收益：</strong>MR = dR/dQ（收益对产量的导数）</li>
+                <li><strong>边际利润：</strong>MP = dP/dQ（利润对产量的导数）</li>
+            </ul>
+        </div>
+
+        <div class="case-study">
+            <h3>案例3：最优产量决策</h3>
+            <p><strong>问题：</strong>某公司的成本函数为 C(Q) = 1000 + 10Q + 0.01Q²，收益函数为 R(Q) = 50Q - 0.02Q²，求利润最大时的产量。</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                利润函数：P(Q) = R(Q) - C(Q)<br>
+                = (50Q - 0.02Q²) - (1000 + 10Q + 0.01Q²)<br>
+                = -1000 + 40Q - 0.03Q²<br>
+                <br>
+                边际利润：MP = dP/dQ = 40 - 0.06Q<br>
+                令 MP = 0：40 - 0.06Q = 0<br>
+                Q = 40/0.06 ≈ 666.67<br>
+                <br>
+                验证二阶导数：d²P/dQ² = -0.06 < 0<br>
+                所以 Q ≈ 667 时利润最大。
+            </div>
+        </div>
+
+        <div class="application">
+            <h3>2.2 消费者剩余与生产者剩余</h3>
+            <p>积分用于计算市场均衡时的剩余：</p>
+            
+            <div class="formula">
+                消费者剩余 = ∫<sub>0</sub><sup>Q*</sup>[D(Q) - P*]dQ
+            </div>
+            <div class="formula">
+                生产者剩余 = ∫<sub>0</sub><sup>Q*</sup>[P* - S(Q)]dQ
+            </div>
+        </div>
+
+        <h2>第三章：生物学中的应用</h2>
+
+        <div class="application">
+            <h3>3.1 种群增长模型</h3>
+            <p>微分方程描述种群动态：</p>
+            
+            <div class="formula">
+                指数增长：dN/dt = rN
+            </div>
+            <div class="formula">
+                逻辑斯谛增长：dN/dt = rN(1 - N/K)
+            </div>
+            
+            <p>其中 N 是种群数量，r 是增长率，K 是环境容量。</p>
+        </div>
+
+        <div class="case-study">
+            <h3>案例4：细菌繁殖</h3>
+            <p><strong>问题：</strong>某种细菌按指数规律增长，增长率 r = 0.5/小时。如果初始数量为 1000，求 6 小时后的细菌数量。</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                解微分方程：dN/dt = 0.5N<br>
+                dN/N = 0.5dt<br>
+                ∫dN/N = ∫0.5dt<br>
+                ln|N| = 0.5t + C<br>
+                N = Ce<sup>0.5t</sup><br>
+                初始条件：N(0) = 1000，所以 C = 1000<br>
+                N(t) = 1000e<sup>0.5t</sup><br>
+                N(6) = 1000e<sup>3</sup> ≈ 1000 × 20.086 = 20086
+            </div>
+        </div>
+
+        <h2>第四章：工程学中的应用</h2>
+
+        <div class="application">
+            <h3>4.1 优化问题</h3>
+            <p>工程中的许多设计问题都可以转化为优化问题：</p>
+            <ul>
+                <li>材料最省设计</li>
+                <li>成本最低方案</li>
+                <li>效率最大配置</li>
+            </ul>
+        </div>
+
+        <div class="case-study">
+            <h3>案例5：最优容器设计</h3>
+            <p><strong>问题：</strong>设计一个体积为 V = 1000 cm³ 的圆柱形罐头，如何选择底面半径 r 和高 h 使材料最省（表面积最小）？</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                约束条件：V = πr²h = 1000<br>
+                所以 h = 1000/(πr²)<br>
+                <br>
+                表面积：S = 2πr² + 2πrh<br>
+                = 2πr² + 2πr × 1000/(πr²)<br>
+                = 2πr² + 2000/r<br>
+                <br>
+                求导：dS/dr = 4πr - 2000/r²<br>
+                令 dS/dr = 0：4πr = 2000/r²<br>
+                4πr³ = 2000<br>
+                r³ = 500/π<br>
+                r ≈ 5.42 cm<br>
+                <br>
+                h = 1000/(π × 5.42²) ≈ 10.84 cm<br>
+                <br>
+                验证：d²S/dr² = 4π + 4000/r³ > 0<br>
+                所以这个设计使表面积最小。
+            </div>
+        </div>
+
+        <div class="application">
+            <h3>4.2 流体力学</h3>
+            <p>积分用于计算流体压力和流量：</p>
+            
+            <div class="formula">
+                压力：P = ∫ρgh dh
+            </div>
+            <div class="formula">
+                流量：Q = ∫v dA
+            </div>
+        </div>
+
+        <h2>第五章：统计学中的应用</h2>
+
+        <div class="application">
+            <h3>5.1 概率密度函数</h3>
+            <p>连续型随机变量的概率分布用密度函数描述：</p>
+            
+            <div class="formula">
+                P(a ≤ X ≤ b) = ∫<sub>a</sub><sup>b</sup>f(x)dx
+            </div>
+            <div class="formula">
+                期望：E(X) = ∫<sub>-∞</sub><sup>∞</sup>xf(x)dx
+            </div>
+            <div class="formula">
+                方差：Var(X) = ∫<sub>-∞</sub><sup>∞</sup>(x - μ)²f(x)dx
+            </div>
+        </div>
+
+        <div class="case-study">
+            <h3>案例6：正态分布概率计算</h3>
+            <p><strong>问题：</strong>设 X ~ N(μ, σ²)，求 P(μ - σ ≤ X ≤ μ + σ)。</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                标准化：Z = (X - μ)/σ ~ N(0, 1)<br>
+                P(μ - σ ≤ X ≤ μ + σ) = P(-1 ≤ Z ≤ 1)<br>
+                = ∫<sub>-1</sub><sup>1</sup>(1/√(2π))e<sup>-z²/2</sup>dz<br>
+                ≈ 0.6826<br>
+                <br>
+                这就是著名的"68-95-99.7法则"中的68%。
+            </div>
+        </div>
+
+        <h2>第六章：跨学科综合案例</h2>
+
+        <div class="case-study">
+            <h3>案例7：传染病传播模型（SIR模型）</h3>
+            <p><strong>问题：</strong>建立传染病传播的数学模型，预测疫情发展趋势。</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                SIR模型将人群分为三类：<br>
+                • S(t)：易感者数量<br>
+                • I(t)：感染者数量<br>
+                • R(t)：康复者数量<br>
+                <br>
+                微分方程组：<br>
+                dS/dt = -βSI/N<br>
+                dI/dt = βSI/N - γI<br>
+                dR/dt = γI<br>
+                <br>
+                其中 β 是感染率，γ 是康复率，N 是总人口。<br>
+                <br>
+                这个模型可以通过数值方法求解，预测疫情峰值和持续时间。
+            </div>
+        </div>
+
+        <div class="case-study">
+            <h3>案例8：金融期权定价（Black-Scholes模型）</h3>
+            <p><strong>问题：</strong>计算欧式看涨期权的理论价格。</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                Black-Scholes公式：<br>
+                C = S₀N(d₁) - Ke<sup>-rT</sup>N(d₂)<br>
+                <br>
+                其中：<br>
+                d₁ = [ln(S₀/K) + (r + σ²/2)T]/(σ√T)<br>
+                d₂ = d₁ - σ√T<br>
+                <br>
+                N(d) 是标准正态分布的累积分布函数：<br>
+                N(d) = (1/√(2π))∫<sub>-∞</sub><sup>d</sup>e<sup>-t²/2</sup>dt<br>
+                <br>
+                这个公式涉及导数（对冲率）、积分（概率计算）和极限（连续时间假设）。
+            </div>
+        </div>
+
+        <h2>第七章：练习题</h2>
+
+        <div class="exercise-box">
+            <h3>练习1：物理应用</h3>
+            <p>一个质点沿直线运动，其速度函数为 v(t) = 3t² - 2t + 1 (m/s)。求：</p>
+            <ol>
+                <li>t = 2s 时的加速度</li>
+                <li>前3秒内质点的位移</li>
+                <li>质点何时速度为零</li>
+            </ol>
+            
+            <button class="show-answer" onclick="toggleAnswer('answer1')">显示答案</button>
+            <div id="answer1" class="answer">
+                <strong>答案：</strong><br>
+                1. 加速度：a(t) = dv/dt = 6t - 2<br>
+                a(2) = 6×2 - 2 = 10 m/s²<br>
+                <br>
+                2. 位移：s(t) = ∫v dt = ∫(3t² - 2t + 1)dt = t³ - t² + t + C<br>
+                假设 s(0) = 0，则 C = 0<br>
+                s(3) = 27 - 9 + 3 = 21 m<br>
+                <br>
+                3. 令 v(t) = 0：3t² - 2t + 1 = 0<br>
+                判别式 Δ = 4 - 12 = -8 < 0<br>
+                所以速度恒不为零。
+            </div>
+        </div>
+
+        <div class="exercise-box">
+            <h3>练习2：经济应用</h3>
+            <p>某产品的需求函数为 P = 100 - 2Q，供应函数为 P = 20 + Q。求市场均衡时的消费者剩余。</p>
+            
+            <button class="show-answer" onclick="toggleAnswer('answer2')">显示答案</button>
+            <div id="answer2" class="answer">
+                <strong>答案：</strong><br>
+                均衡时：100 - 2Q = 20 + Q<br>
+                3Q = 80，Q = 80/3 ≈ 26.67<br>
+                P = 100 - 2×(80/3) = 100 - 160/3 = 140/3 ≈ 46.67<br>
+                <br>
+                消费者剩余 = ∫<sub>0</sub><sup>80/3</sup>(100 - 2Q - 140/3)dQ<br>
+                = ∫<sub>0</sub><sup>80/3</sup>(160/3 - 2Q)dQ<br>
+                = [160Q/3 - Q²]<sub>0</sub><sup>80/3</sup><br>
+                = 160/3 × 80/3 - (80/3)²<br>
+                = 12800/9 - 6400/9 = 6400/9 ≈ 711.11
+            </div>
+        </div>
+
+        <div class="exercise-box">
+            <h3>练习3：优化问题</h3>
+            <p>要建造一个容积为 500 m³ 的无盖长方体水池，如何设计尺寸使材料最省？</p>
+            
+            <button class="show-answer" onclick="toggleAnswer('answer3')">显示答案</button>
+            <div id="answer3" class="answer">
+                <strong>答案：</strong><br>
+                设底面长为 x，宽为 y，高为 h<br>
+                约束：xyh = 500<br>
+                表面积：S = xy + 2xh + 2yh<br>
+                <br>
+                由约束：h = 500/(xy)<br>
+                S = xy + 2x×500/(xy) + 2y×500/(xy)<br>
+                = xy + 1000/y + 1000/x<br>
+                <br>
+                求偏导并令其为零：<br>
+                ∂S/∂x = y - 1000/x² = 0<br>
+                ∂S/∂y = x - 1000/y² = 0<br>
+                <br>
+                解得：x = y = 10 m<br>
+                h = 500/(10×10) = 5 m<br>
+                <br>
+                最优设计：底面 10m × 10m，高 5m。
+            </div>
+        </div>
+
+        <h2>第八章：总结与展望</h2>
+
+        <div class="concept-box">
+            <h3>微积分的应用价值</h3>
+            <table>
+                <tr>
+                    <th>领域</th>
+                    <th>主要应用</th>
+                    <th>核心概念</th>
+                </tr>
+                <tr>
+                    <td>物理学</td>
+                    <td>运动学、力学、电磁学</td>
+                    <td>导数、积分</td>
+                </tr>
+                <tr>
+                    <td>经济学</td>
+                    <td>边际分析、优化决策</td>
+                    <td>导数、极值</td>
+                </tr>
+                <tr>
+                    <td>生物学</td>
+                    <td>种群动态、生态系统</td>
+                    <td>微分方程</td>
+                </tr>
+                <tr>
+                    <td>工程学</td>
+                    <td>优化设计、控制系统</td>
+                    <td>最优化、积分</td>
+                </tr>
+                <tr>
+                    <td>统计学</td>
+                    <td>概率分布、参数估计</td>
+                    <td>积分、极限</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="concept-box">
+            <h3>学习建议</h3>
+            <ul>
+                <li><strong>理论联系实际：</strong>通过具体问题理解抽象概念</li>
+                <li><strong>跨学科思维：</strong>关注微积分在不同领域的应用</li>
+                <li><strong>计算能力：</strong>熟练掌握各种计算方法和技巧</li>
+                <li><strong>建模能力：</strong>学会将实际问题转化为数学模型</li>
+                <li><strong>持续学习：</strong>随着科技发展，微积分的应用领域不断扩展</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <p><strong>恭喜完成一元微积分的完整学习！</strong></p>
+            <p>希望这些教程能够帮助你深入理解微积分的概念和应用。</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            var answer = document.getElementById(id);
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

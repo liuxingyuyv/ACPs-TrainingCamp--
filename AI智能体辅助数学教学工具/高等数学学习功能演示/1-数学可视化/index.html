@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一元微积分可视化演示</title>
+    <style>
+        body { 
+            font-family: 'Microsoft YaHei', Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px;
+        }
+        .intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #007bff;
+        }
+        .visualizations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .viz-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .viz-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .viz-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .viz-header h2 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        .viz-content {
+            padding: 20px;
+        }
+        .viz-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        .viz-description {
+            margin-top: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .math-formula {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #28a745;
+        }
+        .footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>一元微积分可视化演示</h1>
+            <p>通过交互式图表深入理解导数、积分和极限的概念</p>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>📚 欢迎来到微积分可视化世界</h2>
+                <p>本演示集合包含了一元微积分的三个核心概念的可视化展示：</p>
+                <ul>
+                    <li><strong>导数</strong> - 理解函数变化率和切线斜率</li>
+                    <li><strong>积分</strong> - 掌握面积计算和累积效应</li>
+                    <li><strong>极限</strong> - 探索函数的渐近行为</li>
+                </ul>
+                <p>每个演示都包含详细的数学原理解释和观察要点，帮助您更好地理解微积分的精髓。</p>
+            </div>
+            
+            <div class="visualizations">
+                <!-- 导数可视化 -->
+                <div class="viz-card">
+                    <div class="viz-header">
+                        <h2>📈 导数可视化</h2>
+                    </div>
+                    <div class="viz-content">
+                        <img src="derivative_visualization.png" alt="导数可视化">
+                        
+                        <div class="math-formula">
+                            <strong>原函数：</strong> f(x) = x²<br>
+                            <strong>导函数：</strong> f'(x) = 2x
+                        </div>
+                        
+                        <div class="viz-description">
+                            <p>导数表示函数在某点的切线斜率。通过观察蓝色抛物线和红色直线的关系，您可以直观理解：</p>
+                            <ul>
+                                <li>导数的几何意义</li>
+                                <li>函数单调性与导数符号的关系</li>
+                                <li>极值点与导数零点的对应关系</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="derivative_visualization.html" class="button">查看详细演示</a>
+                    </div>
+                </div>
+                
+                <!-- 积分可视化 -->
+                <div class="viz-card">
+                    <div class="viz-header">
+                        <h2>📊 积分可视化</h2>
+                    </div>
+                    <div class="viz-content">
+                        <img src="integral_visualization.png" alt="积分可视化">
+                        
+                        <div class="math-formula">
+                            <strong>被积函数：</strong> f(x) = sin(x)<br>
+                            <strong>原函数：</strong> F(x) = -cos(x) + C<br>
+                            <strong>定积分：</strong> ∫[0,π] sin(x)dx = 2
+                        </div>
+                        
+                        <div class="viz-description">
+                            <p>积分表示函数曲线与x轴之间的有向面积。红色阴影区域展示了从0到π的积分，帮助您理解：</p>
+                            <ul>
+                                <li>积分的几何意义</li>
+                                <li>原函数与被积函数的关系</li>
+                                <li>定积分的计算方法</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="integral_visualization.html" class="button">查看详细演示</a>
+                    </div>
+                </div>
+                
+                <!-- 极限可视化 -->
+                <div class="viz-card">
+                    <div class="viz-header">
+                        <h2>🎯 极限可视化</h2>
+                    </div>
+                    <div class="viz-content">
+                        <img src="limit_visualization.png" alt="极限可视化">
+                        
+                        <div class="math-formula">
+                            <strong>函数：</strong> f(x) = sin(x)/x<br>
+                            <strong>极限：</strong> lim(x→0) sin(x)/x = 1
+                        </div>
+                        
+                        <div class="viz-description">
+                            <p>极限描述了函数在某点附近的渐近行为。通过观察函数如何趋近于极限值，您可以理解：</p>
+                            <ul>
+                                <li>极限的直观概念</li>
+                                <li>左右极限的重要性</li>
+                                <li>重要极限在微积分中的应用</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="limit_visualization.html" class="button">查看详细演示</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center;">
+                <h2>🎯 学习建议</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: #e3f2fd; padding: 20px; border-radius: 10px;">
+                        <h3>🔍 观察模式</h3>
+                        <p>仔细观察每个图形中的关键特征，如切线、面积、趋近行为等。</p>
+                    </div>
+                    <div style="background: #f3e5f5; padding: 20px; border-radius: 10px;">
+                        <h3>🧮 数学联系</h3>
+                        <p>将可视化图形与代数表达式联系起来，理解符号与图形的对应关系。</p>
+                    </div>
+                    <div style="background: #e8f5e8; padding: 20px; border-radius: 10px;">
+                        <h3>💡 实际应用</h3>
+                        <p>思考这些概念在物理、工程、经济学等领域的实际应用。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>📐 一元微积分可视化演示 | 使用Canvas和JavaScript生成</p>
+            <p>© 2025 高等数学演示项目</p>
+        </div>
+    </div>
+</body>
+</html>

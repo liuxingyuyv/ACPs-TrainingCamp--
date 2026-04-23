@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>积分教程 - 不定积分和定积分</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #e74c3c;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #c0392b;
+            margin-top: 25px;
+        }
+        .concept-box {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e74c3c;
+        }
+        .example-box {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+        }
+        .exercise-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #f39c12;
+        }
+        .formula {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .step {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .answer {
+            background: #d4edda;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        .show-answer {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .show-answer:hover {
+            background: #0056b3;
+        }
+        .nav-button {
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px;
+            display: inline-block;
+        }
+        .nav-button:hover {
+            background: #c0392b;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .theorem {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>积分教程 - 不定积分和定积分</h1>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="导数教程.html" class="nav-button">导数教程</a>
+            <a href="极限教程.html" class="nav-button">极限教程</a>
+            <a href="综合应用.html" class="nav-button">综合应用</a>
+        </div>
+
+        <h2>第一章：不定积分</h2>
+        
+        <div class="concept-box">
+            <h3>1.1 原函数与不定积分的概念</h3>
+            <p>如果函数 F(x) 的导数等于 f(x)，即 F'(x) = f(x)，那么 F(x) 称为 f(x) 的<span class="highlight">原函数</span>。</p>
+            
+            <div class="formula">
+                ∫f(x)dx = F(x) + C
+            </div>
+            
+            <p>其中 C 为任意常数，称为<span class="highlight">积分常数</span>。这表示 f(x) 的所有原函数构成一个函数族。</p>
+        </div>
+
+        <div class="concept-box">
+            <h3>1.2 基本积分公式</h3>
+            <div class="formula">
+                ∫x<sup>n</sup>dx = x<sup>n+1</sup>/(n+1) + C  (n ≠ -1)
+            </div>
+            <div class="formula">
+                ∫sin(x)dx = -cos(x) + C
+            </div>
+            <div class="formula">
+                ∫cos(x)dx = sin(x) + C
+            </div>
+            <div class="formula">
+                ∫e<sup>x</sup>dx = e<sup>x</sup> + C
+            </div>
+            <div class="formula">
+                ∫1/xdx = ln|x| + C
+            </div>
+            <div class="formula">
+                ∫sec²(x)dx = tan(x) + C
+            </div>
+        </div>
+
+        <div class="concept-box">
+            <h3>1.3 不定积分的性质</h3>
+            <div class="formula">
+                ∫[f(x) ± g(x)]dx = ∫f(x)dx ± ∫g(x)dx
+            </div>
+            <div class="formula">
+                ∫k·f(x)dx = k∫f(x)dx  (k为常数)
+            </div>
+        </div>
+
+        <h2>第二章：积分方法</h2>
+
+        <div class="concept-box">
+            <h3>2.1 换元积分法</h3>
+            <p><strong>第一类换元法（凑微分法）：</strong></p>
+            <div class="formula">
+                ∫f[g(x)]g'(x)dx = ∫f(u)du  (其中 u = g(x))
+            </div>
+            
+            <p><strong>第二类换元法：</strong></p>
+            <div class="formula">
+                ∫f(x)dx = ∫f[φ(t)]φ'(t)dt  (其中 x = φ(t))
+            </div>
+        </div>
+
+        <div class="concept-box">
+            <h3>2.2 分部积分法</h3>
+            <div class="formula">
+                ∫u·dv = uv - ∫v·du
+            </div>
+            
+            <p>分部积分法适用于被积函数是两个不同类型函数乘积的情况，如多项式与指数函数、三角函数等的乘积。</p>
+        </div>
+
+        <div class="example-box">
+            <h3>例题1：第一类换元法</h3>
+            <p><strong>题目：</strong>计算 ∫2x·cos(x²)dx</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                设 u = x²，则 du = 2xdx<br>
+                ∫2x·cos(x²)dx = ∫cos(u)du<br>
+                = sin(u) + C<br>
+                = sin(x²) + C
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>例题2：分部积分法</h3>
+            <p><strong>题目：</strong>计算 ∫x·e<sup>x</sup>dx</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                设 u = x，dv = e<sup>x</sup>dx<br>
+                则 du = dx，v = e<sup>x</sup><br>
+                ∫x·e<sup>x</sup>dx = x·e<sup>x</sup> - ∫e<sup>x</sup>dx<br>
+                = x·e<sup>x</sup> - e<sup>x</sup> + C<br>
+                = (x - 1)e<sup>x</sup> + C
+            </div>
+        </div>
+
+        <h2>第三章：定积分</h2>
+
+        <div class="concept-box">
+            <h3>3.1 定积分的定义</h3>
+            <p>定积分是函数在区间上的<span class="highlight">累积和</span>，几何上表示函数曲线与x轴之间的有向面积。</p>
+            
+            <div class="formula">
+                ∫<sub>a</sub><sup>b</sup>f(x)dx = lim<sub>n→∞</sub> Σ<sub>i=1</sub><sup>n</sup>f(ξ<sub>i</sub>)Δx<sub>i</sub>
+            </div>
+            
+            <p>其中 a 和 b 分别称为积分下限和上限。</p>
+        </div>
+
+        <div class="theorem">
+            <h3>微积分基本定理（牛顿-莱布尼茨公式）</h3>
+            <p>如果 f(x) 在区间 [a, b] 上连续，F(x) 是 f(x) 的一个原函数，那么：</p>
+            <div class="formula">
+                ∫<sub>a</sub><sup>b</sup>f(x)dx = F(b) - F(a)
+            </div>
+        </div>
+
+        <div class="concept-box">
+            <h3>3.2 定积分的性质</h3>
+            <div class="formula">
+                ∫<sub>a</sub><sup>b</sup>f(x)dx = -∫<sub>b</sub><sup>a</sup>f(x)dx
+            </div>
+            <div class="formula">
+                ∫<sub>a</sub><sup>b</sup>f(x)dx = ∫<sub>a</sub><sup>c</sup>f(x)dx + ∫<sub>c</sub><sup>b</sup>f(x)dx
+            </div>
+            <div class="formula">
+                ∫<sub>a</sub><sup>b</sup>k·f(x)dx = k∫<sub>a</sub><sup>b</sup>f(x)dx
+            </div>
+        </div>
+
+        <h2>第四章：定积分的应用</h2>
+
+        <div class="concept-box">
+            <h3>4.1 平面图形的面积</h3>
+            <p><strong>由曲线 y = f(x)，x轴，直线 x = a，x = b 围成的面积：</strong></p>
+            <div class="formula">
+                A = ∫<sub>a</sub><sup>b</sup>|f(x)|dx
+            </div>
+            
+            <p><strong>由两条曲线 y = f(x) 和 y = g(x) 围成的面积：</strong></p>
+            <div class="formula">
+                A = ∫<sub>a</sub><sup>b</sup>|f(x) - g(x)|dx
+            </div>
+        </div>
+
+        <div class="concept-box">
+            <h3>4.2 旋转体的体积</h3>
+            <p><strong>绕x轴旋转的体积：</strong></p>
+            <div class="formula">
+                V = π∫<sub>a</sub><sup>b</sup>[f(x)]²dx
+            </div>
+            
+            <p><strong>绕y轴旋转的体积：</strong></p>
+            <div class="formula">
+                V = 2π∫<sub>a</sub><sup>b</sup>x·f(x)dx
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>例题3：计算面积</h3>
+            <p><strong>题目：</strong>求由抛物线 y = x² 和直线 y = x + 2 围成的图形面积。</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                第一步：求交点<br>
+                x² = x + 2<br>
+                x² - x - 2 = 0<br>
+                (x - 2)(x + 1) = 0<br>
+                所以 x = -1 或 x = 2<br>
+                <br>
+                第二步：确定上下函数<br>
+                在区间 [-1, 2] 上，x + 2 > x²<br>
+                <br>
+                第三步：计算面积<br>
+                A = ∫<sub>-1</sub><sup>2</sup>[(x + 2) - x²]dx<br>
+                = ∫<sub>-1</sub><sup>2</sup>(-x² + x + 2)dx<br>
+                = [-x³/3 + x²/2 + 2x]<sub>-1</sub><sup>2</sup><br>
+                = [(-8/3 + 2 + 4) - (1/3 + 1/2 - 2)]<br>
+                = [(-8/3 + 6) - (5/6 - 2)]<br>
+                = [10/3 - (-7/6)] = 10/3 + 7/6 = 27/6 = 9/2
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>例题4：旋转体体积</h3>
+            <p><strong>题目：</strong>求曲线 y = √x，x = 0，x = 4 绕x轴旋转所成立体的体积。</p>
+            
+            <div class="step">
+                <strong>解答：</strong><br>
+                V = π∫<sub>0</sub><sup>4</sup>(√x)²dx<br>
+                = π∫<sub>0</sub><sup>4</sup>x dx<br>
+                = π[x²/2]<sub>0</sub><sup>4</sup><br>
+                = π(16/2 - 0) = 8π
+            </div>
+        </div>
+
+        <h2>第五章：练习题</h2>
+
+        <div class="exercise-box">
+            <h3>练习1：不定积分计算</h3>
+            <p>计算下列不定积分：</p>
+            <ol>
+                <li>∫(3x² - 2x + 1)dx</li>
+                <li>∫x·sin(x)dx</li>
+                <li>∫e<sup>2x</sup>dx</li>
+                <li>∫1/(x² + 1)dx</li>
+            </ol>
+            
+            <button class="show-answer" onclick="toggleAnswer('answer1')">显示答案</button>
+            <div id="answer1" class="answer">
+                <strong>答案：</strong><br>
+                1. ∫(3x² - 2x + 1)dx = x³ - x² + x + C<br>
+                2. ∫x·sin(x)dx = -x·cos(x) + sin(x) + C<br>
+                3. ∫e<sup>2x</sup>dx = (1/2)e<sup>2x</sup> + C<br>
+                4. ∫1/(x² + 1)dx = arctan(x) + C
+            </div>
+        </div>
+
+        <div class="exercise-box">
+            <h3>练习2：定积分计算</h3>
+            <p>计算下列定积分：</p>
+            <ol>
+                <li>∫<sub>0</sub><sup>1</sup>(x² + 2x)dx</li>
+                <li>∫<sub>0</sub><sup>π/2</sup>sin(x)dx</li>
+                <li>∫<sub>1</sub><sup>e</sup>(1/x)dx</li>
+            </ol>
+            
+            <button class="show-answer" onclick="toggleAnswer('answer2')">显示答案</button>
+            <div id="answer2" class="answer">
+                <strong>答案：</strong><br>
+                1. ∫<sub>0</sub><sup>1</sup>(x² + 2x)dx = [x³/3 + x²]<sub>0</sub><sup>1</sup> = 1/3 + 1 = 4/3<br>
+                2. ∫<sub>0</sub><sup>π/2</sup>sin(x)dx = [-cos(x)]<sub>0</sub><sup>π/2</sup> = -0 + 1 = 1<br>
+                3. ∫<sub>1</sub><sup>e</sup>(1/x)dx = [ln|x|]<sub>1</sub><sup>e</sup> = 1 - 0 = 1
+            </div>
+        </div>
+
+        <div class="exercise-box">
+            <h3>练习3：应用题</h3>
+            <p>求由曲线 y = x²，y = 0，x = 1 围成的图形绕x轴旋转所成立体的体积。</p>
+            
+            <button class="show-answer" onclick="toggleAnswer('answer3')">显示答案</button>
+            <div id="answer3" class="answer">
+                <strong>答案：</strong><br>
+                V = π∫<sub>0</sub><sup>1</sup>(x²)²dx<br>
+                = π∫<sub>0</sub><sup>1</sup>x⁴dx<br>
+                = π[x⁵/5]<sub>0</sub><sup>1</sup><br>
+                = π(1/5 - 0) = π/5
+            </div>
+        </div>
+
+        <h2>第六章：本章小结</h2>
+
+        <div class="concept-box">
+            <h3>学习要点总结</h3>
+            <ul>
+                <li><strong>不定积分：</strong>理解原函数概念，掌握基本积分公式和积分方法</li>
+                <li><strong>积分技巧：</strong>熟练运用换元法和分部积分法</li>
+                <li><strong>定积分：</strong>掌握牛顿-莱布尼茨公式，理解定积分的几何意义</li>
+                <li><strong>积分应用：</strong>能够计算平面图形面积和旋转体体积</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="极限教程.html" class="nav-button">下一章：极限教程</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            var answer = document.getElementById(id);
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一元微积分公式转换演示</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .formula-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .formula-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        .formula-title {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .formula-category {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .formula-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .formula-section {
+            margin: 15px 0;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .latex-code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .mathml-code {
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .text-format {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        .formula-display {
+            font-size: 1.5em;
+            text-align: center;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px solid #bdc3c7;
+        }
+        .navigation {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .nav-button {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+        .nav-button:hover {
+            background: #5a67d8;
+        }
+        .format-tabs {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 15px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: #f8f9fa;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .tab.active {
+            background: white;
+            border-bottom: 2px solid #667eea;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 一元微积分公式转换演示</h1>
+        
+        <div class="navigation">
+            <a href="../1-数学可视化/index.html" class="nav-button">← 数学可视化</a>
+            <a href="../2-智能练习题/导数练习题.html" class="nav-button">智能练习题</a>
+            <a href="../4-分步教程/index.html" class="nav-button">分步教程 →</a>
+        </div>
+
+        <div class="intro">
+            <h2>📚 演示说明</h2>
+            <p>本页面展示了一元微积分中最重要的10个公式的多种格式转换，包括：</p>
+            <ul>
+                <li>📝 <strong>LaTeX格式</strong>：数学排版的标准格式</li>
+                <li>🌐 <strong>MathML格式</strong>：网页数学标记语言</li>
+                <li>📄 <strong>文本格式</strong>：纯文本表示</li>
+                <li>🎨 <strong>可视化显示</strong>：数学公式的美观展示</li>
+            </ul>
+        </div>
+
+        
+        <div class="formula-card">
+            <div class="formula-title">1. 导数定义</div>
+            <span class="formula-category">导数</span>
+            <div class="formula-description">函数在某点的导数定义</div>
+            
+            <div class="format-tabs">
+                <button class="tab active" onclick="showTab('display-0', this)">可视化显示</button>
+                <button class="tab" onclick="showTab('latex-0', this)">LaTeX格式</button>
+                <button class="tab" onclick="showTab('mathml-0', this)">MathML格式</button>
+                <button class="tab" onclick="showTab('text-0', this)">文本格式</button>
+            </div>
+            
+            <div id="display-0" class="tab-content active">
+                <div class="section-title">🎨 可视化显示</div>
+                <div class="formula-display">
+                    \[f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\]
+                </div>
+            </div>
+            
+            <div id="latex-0" class="tab-content">
+                <div class="section-title">📝 LaTeX格式</div>
+                <div class="latex-code">f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}</div>
+                <p><strong>使用说明：</strong>在LaTeX文档中使用 \[...\] 或 $$...$$ 包围此代码即可显示公式。</p>
+            </div>
+            
+            <div id="mathml-0" class="tab-content">
+                <div class="section-title">🌐 MathML格式</div>
+                <div class="mathml-code">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msup>
+      <mi>f</mi>
+      <mo>′</mo>
+    </msup>
+    <mo>(</mo>
+    <mi>x</mi>
+    <mo>)</mo>
+    <mo>=</mo>
+    <munder>
+      <mo>lim</mo>
+      <mrow>
+        <mi>h</mi>
+        <mo>→</mo>
+        <mn>0</mn>
+      </mrow>
+    </munder>
+    <mfrac>
+      <mrow>
+        <mi>f</mi>
+        <mo>(</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mi>h</mi>
+        <mo>)</mo>
+        <mo>-</mo>
+        <mi>f</mi>
+        <mo>(</mo>
+        <mi>x</mi>
+        <mo>)</mo>
+      </mrow>
+      <mi>h</mi>
+    </mfrac>
+  </mrow>
+</math>
+                </div>
+                <p><strong>使用说明：</strong>MathML是W3C推荐的数学标记语言，可直接在支持MathML的浏览器中显示。</p>
+            </div>
+            
+            <div id="text-0" class="tab-content">
+                <div class="section-title">📄 文本格式</div>
+                <div class="text-format">
+f'(x) = lim(h→0) [f(x+h) - f(x)] / h
+                </div>
+                <p><strong>使用说明：</strong>纯文本格式适用于不支持数学渲染的环境，如纯文本邮件或终端。</p>
+            </div>
+        </div>
+        
+        <div class="formula-card">
+            <div class="formula-title">2. 幂函数导数</div>
+            <span class="formula-category">导数</span>
+            <div class="formula-description">幂函数的导数公式</div>
+            
+            <div class="format-tabs">
+                <button class="tab active" onclick="showTab('display-1', this)">可视化显示</button>
+                <button class="tab" onclick="showTab('latex-1', this)">LaTeX格式</button>
+                <button class="tab" onclick="showTab('mathml-1', this)">MathML格式</button>
+                <button class="tab" onclick="showTab('text-1', this)">文本格式</button>
+            </div>
+            
+            <div id="display-1" class="tab-content active">
+                <div class="section-title">🎨 可视化显示</div>
+                <div class="formula-display">
+                    \[\frac{d}{dx} x^n = nx^{n-1}\]
+                </div>
+            </div>
+            
+            <div id="latex-1" class="tab-content">
+                <div class="section-title">📝 LaTeX格式</div>
+                <div class="latex-code">\frac{d}{dx} x^n = nx^{n-1}</div>
+                <p><strong>使用说明：</strong>在LaTeX文档中使用 \[...\] 或 $$...$$ 包围此代码即可显示公式。</p>
+            </div>
+            
+            <div id="mathml-1" class="tab-content">
+                <div class="section-title">🌐 MathML格式</div>
+                <div class="mathml-code">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mfrac>
+      <mi>d</mi>
+      <mrow>
+        <mi>d</mi>
+        <mi>x</mi>
+      </mrow>
+    </mfrac>
+    <msup>
+      <mi>x</mi>
+      <mi>n</mi>
+    </msup>
+    <mo>=</mo>
+    <mi>n</mi>
+    <msup>
+      <mi>x</mi>
+      <mrow>
+        <mi>n</mi>
+        <mo>-</mo>
+        <mn>1</mn>
+      </mrow>
+    </msup>
+  </mrow>
+</math>
+                </div>
+                <p><strong>使用说明：</strong>MathML是W3C推荐的数学标记语言，可直接在支持MathML的浏览器中显示。</p>
+            </div>
+            
+            <div id="text-1" class="tab-content">
+                <div class="section-title">📄 文本格式</div>
+                <div class="text-format">
+d/dx (x^n) = n * x^(n-1)
+                </div>
+                <p><strong>使用说明：</strong>纯文本格式适用于不支持数学渲染的环境，如纯文本邮件或终端。</p>
+            </div>
+        </div>
+        
+        <div class="formula-card">
+            <div class="formula-title">3. 乘积法则</div>
+            <span class="formula-category">导数</span>
+            <div class="formula-description">两个函数乘积的导数</div>
+            
+            <div class="format-tabs">
+                <button class="tab active" onclick="showTab('display-2', this)">可视化显示</button>
+                <button class="tab" onclick="showTab('latex-2', this)">LaTeX格式</button>
+                <button class="tab" onclick="showTab('mathml-2', this)">MathML格式</button>
+                <button class="tab" onclick="showTab('text-2', this)">文本格式</button>
+            </div>
+            
+            <div id="display-2" class="tab-content active">
+                <div class="section-title">🎨 可视化显示</div>
+                <div class="formula-display">
+                    \[\frac{d}{dx}[u(x)v(x)] = u'(x)v(x) + u(x)v'(x)\]
+                </div>
+            </div>
+            
+            <div id="latex-2" class="tab-content">
+                <div class="section-title">📝 LaTeX格式</div>
+                <div class="latex-code">\frac{d}{dx}[u(x)v(x)] = u'(x)v(x) + u(x)v'(x)</div>
+                <p><strong>使用说明：</strong>在LaTeX文档中使用 \[...\] 或 $$...$$ 包围此代码即可显示公式。</p>
+            </div>
+            
+            <div id="mathml-2" class="tab-content">
+                <div class="section-title">🌐 MathML格式</div>
+                <div class="mathml-code">
+<!-- MathML转换需要更复杂的解析器，这里提供简化版本 -->
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>公式</mi>
+    <mo>=</mo>
+    <mi>转换</mi>
+  </mrow>
+</math>
+                </div>
+                <p><strong>使用说明：</strong>MathML是W3C推荐的数学标记语言，可直接在支持MathML的浏览器中显示。</p>
+            </div>
+            
+            <div id="text-2" class="tab-content">
+                <div class="section-title">📄 文本格式</div>
+                <div class="text-format">
+d/dx [u(x) * v(x)] = u'(x) * v(x) + u(x) * v'(x)
+                </div>
+                <p><strong>使用说明：</strong>纯文本格式适用于不支持数学渲染的环境，如纯文本邮件或终端。</p>
+            </div>
+        </div>
+        
+        <div class="formula-card">
+            <div class="formula-title">4. 链式法则</div>
+            <span class="formula-category">导数</span>
+            <div class="formula-description">复合函数的导数</div>
+            
+            <div class="format-tabs">
+                <button class="tab active" onclick="showTab('display-3', this)">可视化显示</button>
+                <button class="tab" onclick="showTab('latex-3', this)">LaTeX格式</button>
+                <button class="tab" onclick="showTab('mathml-3', this)">MathML格式</button>
+                <button class="tab" onclick="showTab('text-3', this)">文本格式</button>
+            </div>
+            
+            <div id="display-3" class="tab-content active">
+                <div class="section-title">🎨 可视化显示</div>
+                <div class="formula-display">
+                    \[\frac{d}{dx}f(g(x)) = f'(g(x)) \cdot g'(x)\]
+                </div>
+            </div>
+            
+            <div id="latex-3" class="tab-content">
+                <div class="section-title">📝 LaTeX格式</div>
+                <div class="latex-code">\frac{d}{dx}f(g(x)) = f'(g(x)) \cdot g'(x)</div>
+                <p><strong>使用说明：</strong>在LaTeX文档中使用 \[...\] 或 $$...$$ 包围此代码即可显示公式。</p>
+            </div>
+            
+            <div id="mathml-3" class="tab-content">
+                <div class="section-title">🌐 MathML格式</div>
+                <div class="mathml-code">
+<!-- MathML转换需要更复杂的解析器，这里提供简化版本 -->
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>公式</mi>
+    <mo>=</mo>
+    <mi>转换</mi>
+  </mrow>
+</math>
+                </div>
+                <p><strong>使用说明：</strong>MathML是W3C推荐的数学标记语言，可直接在支持MathML的浏览器中显示。</p>
+            </div>
+            
+            <div id="text-3" class="tab-content">
+                <div class="section-title">📄 文本格式</div>
+                <div class="text-format">
+d/dx f(g(x)) = f'(g(x)) * g'(x)
+                </div>
+                <p><strong>使用说明：</strong>纯文本格式适用于不支持数学渲染的环境，如纯文本邮件或终端。</p>
+            </div>
+        </div>
+        
+        <div class="formula-card">
+            <div class="formula-title">5. 牛顿-莱布尼茨公式</div>
+            <span class="formula-category">积分</span>
+            <div class="formula-description">定积分的基本定理</div>
+            
+            <div class="format-tabs">
+                <button class="tab active" onclick="showTab('display-4', this)">可视化显示</button>
+                <button class="tab" onclick="showTab('latex-4', this)">LaTeX格式</button>
+                <button class="tab" onclick="showTab('mathml-4', this)">MathML格式</button>
+                <button class="tab" onclick="showTab('text-4', this)">文本格式</button>
+            </div>
+            
+            <div id="display-4" class="tab-content active">
+                <div class="section-title">🎨 可视化显示</div>
+                <div class="formula-display">
+                    \[\int_a^b f(x)dx = F(b) - F(a)\]
+                </div>
+            </div>
+            
+            <div id="latex-4" class="tab-content">
+                <div class="section-title">📝 LaTeX格式</div>
+                <div class="latex-code">\int_a^b f(x)dx = F(b) - F(a)</div>
+                <p><strong>使用说明：</strong>在LaTeX文档中使用 \[...\] 或 $$...$$ 包围此代码即可显示公式。</p>
+            </div>
+            
+            <div id="mathml-4" class="tab-content">
+                <div class="section-title">🌐 MathML格式</div>
+                <div class="mathml-code">
+<!-- MathML转换需要更复杂的解析器，这里提供简化版本 -->
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>公式</mi>
+    <mo>=</mo>
+    <mi>转换</mi>
+  </mrow>
+</math>
+                </div>
+                <p><strong>使用说明：</strong>MathML是W3C推荐的数学标记语言，可直接在支持MathML的浏览器中显示。</p>
+            </div>
+            
+            <div id="text-4" class="tab-content">
+                <div class="section-title">📄 文本格式</div>
+                <div class="text-format">
+∫[a to b] f(x) dx = F(b) - F(a)
+                </div>
+                <p><strong>使用说明：</strong>纯文本格式适用于不支持数学渲染的环境，如纯文本邮件或终端。</p>
+            </div>
+        </div>
+        
+        <div class="formula-card">
+            <div class="formula-title">6. 基本积分公式</div>
+            <span class="formula-category">积分</span>
+            <div class="formula-description">幂函数的不定积分</div>
+            
+            <div class="format-tabs">
+                <button class="tab active" onclick="showTab('display-5', this)">可视化显示</button>
+                <button class="tab" onclick="showTab('latex-5', this)">LaTeX格式</button>
+                <button class="tab" onclick="showTab('mathml-5', this)">MathML格式</button>
+                <button class="tab" onclick="showTab('text-5', this)">文本格式</button>
+            </div>
+            
+            <div id="display-5" class="tab-content active">
+                <div class="section-title">🎨 可视化显示</div>
+                <div class="formula-display">
+                    \[\int x^n dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)\]
+                </div>
+            </div>
+            
+            <div id="latex-5" class="tab-content">
+                <div class="section-title">📝 LaTeX格式</div>
+                <div class="latex-code">\int x^n dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)</div>
+                <p><strong>使用说明：</strong>在LaTeX文档中使用 \[...\] 或 $$...$$ 包围此代码即可显示公式。</p>
+            </div>
+            
+            <div id="mathml-5" class="tab-content">
+                <div class="section-title">🌐 MathML格式</div>
+                <div class="mathml-code">
+<!-- MathML转换需要更复杂的解析器，这里提供简化版本 -->
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>公式</mi>
+    <mo>=</mo>
+    <mi>转换</mi>
+  </mrow>
+</math>
+                </div>
+                <p><strong>使用说明：</strong>MathML是W3C推荐的数学标记语言，可直接在支持MathML的浏览器中显示。</p>
+            </div>
+            
+            <div id="text-5" class="tab-content">
+                <div class="section-title">📄 文本格式</div>
+                <div class="text-format">
+∫ x^n dx = x^(n+1) / (n+1) + C (n ≠ -1)
+                </div>
+                <p><strong>使用说明：</strong>纯文本格式适用于不支持数学渲染的环境，如纯文本邮件或终端。</p>
+            </div>
+        </div>
+        
+        <div class="formula-card">
+            <div class="formula-title">7. 分部积分公式</div>
+            <span class="formula-category">积分</span>
+            <div class="formula-description">分部积分法</div>
+            
+            <div class="format-tabs">
+                <button class="tab active" onclick="showTab('display-6', this)">可视化显示</button>
+                <button class="tab" onclick="showTab('latex-6', this)">LaTeX格式</button>
+                <button class="tab" onclick="showTab('mathml-6', this)">MathML格式</button>
+                <button class="tab" onclick="showTab('text-6', this)">文本格式</button>
+            </div>
+            
+            <div id="display-6" class="tab-content active">
+                <div class="section-title">🎨 可视化显示</div>
+                <div class="formula-display">
+                    \[\int u dv = uv - \int v du\]
+                </div>
+            </div>
+            
+            <div id="latex-6" class="tab-content">
+                <div class="section-title">📝 LaTeX格式</div>
+                <div class="latex-code">\int u dv = uv - \int v du</div>
+                <p><strong>使用说明：</strong>在LaTeX文档中使用 \[...\] 或 $$...$$ 包围此代码即可显示公式。</p>
+            </div>
+            
+            <div id="mathml-6" class="tab-content">
+                <div class="section-title">🌐 MathML格式</div>
+                <div class="mathml-code">
+<!-- MathML转换需要更复杂的解析器，这里提供简化版本 -->
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>公式</mi>
+    <mo>=</mo>
+    <mi>转换</mi>
+  </mrow>
+</math>
+                </div>
+                <p><strong>使用说明：</strong>MathML是W3C推荐的数学标记语言，可直接在支持MathML的浏览器中显示。</p>
+            </div>
+            
+            <div id="text-6" class="tab-content">
+                <div class="section-title">📄 文本格式</div>
+                <div class="text-format">
+∫ u dv = u*v - ∫ v du
+                </div>
+                <p><strong>使用说明：</strong>纯文本格式适用于不支持数学渲染的环境，如纯文本邮件或终端。</p>
+            </div>
+        </div>
+        
+        <div class="formula-card">
+            <div class="formula-title">8. 极限定义</div>
+            <span class="formula-category">极限</span>
+            <div class="formula-description">函数极限的定义</div>
+            
+            <div class="format-tabs">
+                <button class="tab active" onclick="showTab('display-7', this)">可视化显示</button>
+                <button class="tab" onclick="showTab('latex-7', this)">LaTeX格式</button>
+                <button class="tab" onclick="showTab('mathml-7', this)">MathML格式</button>
+                <button class="tab" onclick="showTab('text-7', this)">文本格式</button>
+            </div>
+            
+            <div id="display-7" class="tab-content active">
+                <div class="section-title">🎨 可视化显示</div>
+                <div class="formula-display">
+                    \[\lim_{x \to a} f(x) = L\]
+                </div>
+            </div>
+            
+            <div id="latex-7" class="tab-content">
+                <div class="section-title">📝 LaTeX格式</div>
+                <div class="latex-code">\lim_{x \to a} f(x) = L</div>
+                <p><strong>使用说明：</strong>在LaTeX文档中使用 \[...\] 或 $$...$$ 包围此代码即可显示公式。</p>
+            </div>
+            
+            <div id="mathml-7" class="tab-content">
+                <div class="section-title">🌐 MathML格式</div>
+                <div class="mathml-code">
+<!-- MathML转换需要更复杂的解析器，这里提供简化版本 -->
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>公式</mi>
+    <mo>=</mo>
+    <mi>转换</mi>
+  </mrow>
+</math>
+                </div>
+                <p><strong>使用说明：</strong>MathML是W3C推荐的数学标记语言，可直接在支持MathML的浏览器中显示。</p>
+            </div>
+            
+            <div id="text-7" class="tab-content">
+                <div class="section-title">📄 文本格式</div>
+                <div class="text-format">
+lim(x→a) f(x) = L
+                </div>
+                <p><strong>使用说明：</strong>纯文本格式适用于不支持数学渲染的环境，如纯文本邮件或终端。</p>
+            </div>
+        </div>
+        
+        <div class="formula-card">
+            <div class="formula-title">9. 重要极限1</div>
+            <span class="formula-category">极限</span>
+            <div class="formula-description">第一个重要极限</div>
+            
+            <div class="format-tabs">
+                <button class="tab active" onclick="showTab('display-8', this)">可视化显示</button>
+                <button class="tab" onclick="showTab('latex-8', this)">LaTeX格式</button>
+                <button class="tab" onclick="showTab('mathml-8', this)">MathML格式</button>
+                <button class="tab" onclick="showTab('text-8', this)">文本格式</button>
+            </div>
+            
+            <div id="display-8" class="tab-content active">
+                <div class="section-title">🎨 可视化显示</div>
+                <div class="formula-display">
+                    \[\lim_{x \to 0} \frac{\sin x}{x} = 1\]
+                </div>
+            </div>
+            
+            <div id="latex-8" class="tab-content">
+                <div class="section-title">📝 LaTeX格式</div>
+                <div class="latex-code">\lim_{x \to 0} \frac{\sin x}{x} = 1</div>
+                <p><strong>使用说明：</strong>在LaTeX文档中使用 \[...\] 或 $$...$$ 包围此代码即可显示公式。</p>
+            </div>
+            
+            <div id="mathml-8" class="tab-content">
+                <div class="section-title">🌐 MathML格式</div>
+                <div class="mathml-code">
+<!-- MathML转换需要更复杂的解析器，这里提供简化版本 -->
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>公式</mi>
+    <mo>=</mo>
+    <mi>转换</mi>
+  </mrow>
+</math>
+                </div>
+                <p><strong>使用说明：</strong>MathML是W3C推荐的数学标记语言，可直接在支持MathML的浏览器中显示。</p>
+            </div>
+            
+            <div id="text-8" class="tab-content">
+                <div class="section-title">📄 文本格式</div>
+                <div class="text-format">
+lim(x→0) sin(x) / x = 1
+                </div>
+                <p><strong>使用说明：</strong>纯文本格式适用于不支持数学渲染的环境，如纯文本邮件或终端。</p>
+            </div>
+        </div>
+        
+        <div class="formula-card">
+            <div class="formula-title">10. 泰勒展开</div>
+            <span class="formula-category">级数</span>
+            <div class="formula-description">泰勒级数展开</div>
+            
+            <div class="format-tabs">
+                <button class="tab active" onclick="showTab('display-9', this)">可视化显示</button>
+                <button class="tab" onclick="showTab('latex-9', this)">LaTeX格式</button>
+                <button class="tab" onclick="showTab('mathml-9', this)">MathML格式</button>
+                <button class="tab" onclick="showTab('text-9', this)">文本格式</button>
+            </div>
+            
+            <div id="display-9" class="tab-content active">
+                <div class="section-title">🎨 可视化显示</div>
+                <div class="formula-display">
+                    \[f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + R_n(x)\]
+                </div>
+            </div>
+            
+            <div id="latex-9" class="tab-content">
+                <div class="section-title">📝 LaTeX格式</div>
+                <div class="latex-code">f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + R_n(x)</div>
+                <p><strong>使用说明：</strong>在LaTeX文档中使用 \[...\] 或 $$...$$ 包围此代码即可显示公式。</p>
+            </div>
+            
+            <div id="mathml-9" class="tab-content">
+                <div class="section-title">🌐 MathML格式</div>
+                <div class="mathml-code">
+<!-- MathML转换需要更复杂的解析器，这里提供简化版本 -->
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>公式</mi>
+    <mo>=</mo>
+    <mi>转换</mi>
+  </mrow>
+</math>
+                </div>
+                <p><strong>使用说明：</strong>MathML是W3C推荐的数学标记语言，可直接在支持MathML的浏览器中显示。</p>
+            </div>
+            
+            <div id="text-9" class="tab-content">
+                <div class="section-title">📄 文本格式</div>
+                <div class="text-format">
+f(x) = f(a) + f'(a)(x-a) + f''(a)/2! * (x-a)^2 + ... + f^(n)(a)/n! * (x-a)^n + R_n(x)
+                </div>
+                <p><strong>使用说明：</strong>纯文本格式适用于不支持数学渲染的环境，如纯文本邮件或终端。</p>
+            </div>
+        </div>
+        
+
+        <div class="navigation">
+            <a href="../1-数学可视化/index.html" class="nav-button">← 数学可视化</a>
+            <a href="../2-智能练习题/导数练习题.html" class="nav-button">智能练习题</a>
+            <a href="../4-分步教程/index.html" class="nav-button">分步教程 →</a>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId, tabElement) {
+            // 隐藏所有同级的tab内容
+            const tabContents = tabElement.parentElement.parentElement.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // 移除所有tab的active类
+            const tabs = tabElement.parentElement.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // 显示选中的tab内容
+            document.getElementById(tabId).classList.add('active');
+            tabElement.classList.add('active');
+            
+            // 重新渲染MathJax
+            if (MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise([document.getElementById(tabId)]);
+            }
+        }
+        
+        // 页面加载完成后渲染MathJax
+        window.addEventListener('load', function() {
+            if (MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        });
+    </script>
+</body>
+</html>

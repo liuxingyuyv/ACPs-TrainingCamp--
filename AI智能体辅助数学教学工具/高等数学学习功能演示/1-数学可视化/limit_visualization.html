@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极限可视化</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .visualization { text-align: center; margin: 20px 0; }
+        .explanation { background: #f5f5f5; padding: 15px; margin: 20px 0; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>极限可视化：lim(x→0) sin(x)/x = 1</h1>
+        
+        <div class="visualization">
+            <img src="limit_visualization.png" alt="极限可视化">
+        </div>
+        
+        <div class="explanation">
+            <h2>数学原理</h2>
+            <p><strong>函数：</strong>f(x) = sin(x)/x</p>
+            <p><strong>极限：</strong>lim(x→0) sin(x)/x = 1</p>
+            
+            <h3>极限的概念</h3>
+            <ul>
+                <li>当x趋近于0时，函数值趋近于1</li>
+                <li>函数在x=0处无定义，但极限存在</li>
+                <li>左右极限相等，因此极限存在</li>
+            </ul>
+            
+            <h3>观察要点</h3>
+            <ul>
+                <li>蓝色曲线表示函数f(x) = sin(x)/x</li>
+                <li>红色虚线表示极限值y = 1</li>
+                <li>绿色箭头表示x从两侧趋近于0</li>
+                <li>红点标记了极限点(0,1)</li>
+            </ul>
+            
+            <h3>重要极限</h3>
+            <p>这是微积分中的重要极限之一，在推导导数公式时有重要应用。</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "work-assistant-mcp",
+  "version": "1.0.0",
+  "description": "MCP服务，提供网页查询、Word文档生成和PPT制作功能",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "archiver": "^7.0.1",
+    "axios": "^1.6.0",
+    "canvas": "^3.2.0",
+    "cheerio": "^1.0.0-rc.12",
+    "docx": "^8.5.0",
+    "express": "^4.18.2",
+    "mathjs": "^15.1.0",
+    "pptxgenjs": "^3.12.0",
+    "puppeteer": "^24.32.0",
+    "sharp": "^0.34.5"
+  },
+  "keywords": [
+    "mcp",
+    "web-search",
+    "word",
+    "powerpoint",
+    "automation"
+  ],
+  "author": "Work Assistant",
+  "license": "MIT"
+}

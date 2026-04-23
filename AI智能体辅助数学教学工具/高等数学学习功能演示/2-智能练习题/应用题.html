@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>应用题（共5题）</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .meta-info {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .exercise {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .exercise-header {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .question {
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+        }
+        .answer {
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #e8f8e8;
+            border-left: 4px solid #27ae60;
+        }
+        .answer strong {
+            color: #27ae60;
+        }
+        .explanation {
+            font-size: 14px;
+            padding: 10px;
+            background-color: #fef9e7;
+            border-left: 4px solid #f39c12;
+        }
+        .explanation strong {
+            color: #f39c12;
+        }
+        .divider {
+            text-align: center;
+            color: #bdc3c7;
+            margin: 20px 0;
+        }
+        .difficulty-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .easy { background-color: #d5f4e6; color: #27ae60; }
+        .medium { background-color: #fef9e7; color: #f39c12; }
+        .hard { background-color: #fadbd8; color: #e74c3c; }
+        @media print {
+            body { background-color: white; }
+            .container { box-shadow: none; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>应用题（共5题）</h1>
+        <div class="meta-info">生成时间：2025/12/8 17:53:42</div>
+        
+        
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 1
+                <span class="difficulty-badge easy">简单</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>一个球从高度h米自由落下，其运动方程为h(t) = 20 - 5t²，求2秒时的速度
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>-20 m/s
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>速度是位移对时间的导数：v(t) = h'(t) = -10t，当t = 2时，v(2) = -20 m/s（负号表示向下运动）
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 2
+                <span class="difficulty-badge easy">简单</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>某物体的温度随时间变化为T(t) = 25 + 10e^(-0.1t)，求初始温度变化率
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>-1 °C/s
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>温度变化率为T'(t) = -e^(-0.1t)，当t = 0时，T'(0) = -1 °C/s
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 3
+                <span class="difficulty-badge medium">中等</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>一个长方形的长以3cm/s增加，宽以2cm/s减少，求当长为10cm，宽为6cm时，面积的变化率
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>-2 cm²/s
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>面积A = lw，dA/dt = l·dw/dt + w·dl/dt = 10·(-2) + 6·3 = -20 + 18 = -2 cm²/s（面积在减少）
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 4
+                <span class="difficulty-badge medium">中等</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>某产品的成本函数为C(x) = 1000 + 50x + 0.1x²，求生产100个单位时的边际成本
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>70
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>边际成本是成本函数的导数：C'(x) = 50 + 0.2x，当x = 100时，C'(100) = 50 + 20 = 70
+            </div>
+        </div>
+        <div class="divider">─ ─ ─ ─ ─</div>
+            
+        <div class="exercise">
+            <div class="exercise-header">
+                题目 5
+                <span class="difficulty-badge hard">困难</span>
+            </div>
+            <div class="question">
+                <strong>题目：</strong>一个15米长的梯子靠在墙上，梯子底部以2m/s的速度滑离墙壁，求当梯子底部距离墙壁5m时，梯子顶部下滑的速度
+            </div>
+            <div class="answer">
+                <strong>答案：</strong>-0.5√5 m/s
+            </div>
+            <div class="explanation">
+                <strong>解析：</strong>设梯子底部距墙x米，顶部高y米，则x² + y² = 225。对时间求导：2x·dx/dt + 2y·dy/dt = 0，当x = 5时，y = √(225 - 25) = √200 = 10√2，代入得：dy/dt = -(x/y)·dx/dt = -(5/(10√2))·2 = -1/√2 = -√2/2 m/s
+            </div>
+        </div>
+        
+            
+    </div>
+</body>
+</html>

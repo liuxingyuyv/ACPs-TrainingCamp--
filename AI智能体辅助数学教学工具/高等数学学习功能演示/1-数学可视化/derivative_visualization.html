@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导数可视化</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .visualization { text-align: center; margin: 20px 0; }
+        .explanation { background: #f5f5f5; padding: 15px; margin: 20px 0; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>导数可视化：f(x) = x² 及其导数 f'(x) = 2x</h1>
+        
+        <div class="visualization">
+            <img src="derivative_visualization.png" alt="导数可视化">
+        </div>
+        
+        <div class="explanation">
+            <h2>数学原理</h2>
+            <p><strong>原函数：</strong>f(x) = x²</p>
+            <p><strong>导函数：</strong>f'(x) = 2x</p>
+            
+            <h3>导数的几何意义</h3>
+            <ul>
+                <li>导数表示函数在某点的切线斜率</li>
+                <li>当x > 0时，f'(x) = 2x > 0，函数单调递增</li>
+                <li>当x < 0时，f'(x) = 2x < 0，函数单调递减</li>
+                <li>当x = 0时，f'(0) = 0，函数在原点处有水平切线</li>
+            </ul>
+            
+            <h3>观察要点</h3>
+            <ul>
+                <li>蓝色曲线代表原函数f(x) = x²，是一条开口向上的抛物线</li>
+                <li>红色直线代表导函数f'(x) = 2x，是一条通过原点的直线</li>
+                <li>导数的零点对应原函数的极值点</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
